@@ -5,30 +5,30 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ExpenseComponent } from './expense/expense.component';
-import { CategoryComponent } from './category/category.component'
-import {Router, RouterModule, Routes} from "@angular/router";
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
-import {HomeComponent} from "./home/home.component";
+import { CategoryComponent } from './category/category.component';
+import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {HomeComponent} from './home/home.component';
 
 
-const appRoutes :Routes = [
+const appRoutes: Routes = [
   {
-    path:'home',
-    component:HomeComponent
+    path: 'home',
+    component: HomeComponent
   },
   {
-    path:'expense',
-    component:ExpenseComponent
+    path: 'expense',
+    component: ExpenseComponent
   },
   {
-    path:'category',
-    component:CategoryComponent
+    path: 'category',
+    component: CategoryComponent
   },
   {
-    path:'',
-    component:ExpenseComponent,
-    pathMatch:'full'
+    path: '',
+    component: ExpenseComponent,
+    pathMatch: 'full'
   },
 ];
 
