@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    component: ExpenseComponent,
+    component: HomeComponent,
     pathMatch: 'full'
   },
 ];
