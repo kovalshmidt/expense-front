@@ -9,14 +9,20 @@ import { CategoryComponent } from './category/category.component'
 import {Router, RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {HomeComponent} from "./home/home.component";
+
 
 const appRoutes :Routes = [
+  {
+    path:'home',
+    component:HomeComponent
+  },
   {
     path:'expense',
     component:ExpenseComponent
   },
   {
-    path:'categories',
+    path:'category',
     component:CategoryComponent
   },
   {
@@ -31,7 +37,8 @@ const appRoutes :Routes = [
     AppComponent,
     NavigationComponent,
     ExpenseComponent,
-    CategoryComponent
+    CategoryComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
