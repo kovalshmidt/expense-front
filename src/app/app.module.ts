@@ -1,16 +1,52 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { ExpenseComponent } from './expense/expense.component';
+import { CategoryComponent } from './category/category.component';
+import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {HomeComponent} from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+
+
+const appRoutes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'expense',
+    component: ExpenseComponent
+  },
+  {
+    path: 'category',
+    component: CategoryComponent
+  },
+  {
+    path: '',
+    component: HomeComponent,
+    pathMatch: 'full'
+  },
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent,
+    ExpenseComponent,
+    CategoryComponent,
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
