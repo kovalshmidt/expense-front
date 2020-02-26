@@ -1,6 +1,16 @@
 # ExpenseFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
+When you start working on task first of all move it in the project from "To Do" to "In Progress". Then on Intellij Idea open the project, move to branch "development" if you are not already there
+[git checkout development]
+do a Pull request (it can file if there are not committed files) after that create the branch for your issue
+[git checkout -b feature_issuename_issuenumber]
+an example of how a branch should be called: feature_apiservice_4
+meanwhile you work on the issue make commits, is better to commit every important step.
+When you have done push your branch to github.
+On github in <>Code you will see your branch (if not choose from the dropdown) push the green bottom on the right "pull request" and then make sure that the pull reqest will be from your branch to development:
+development <- feature_apiservice_4
+assign it to me and then you work is done. 
+Move your issue from "In Progress" to "Done"
 
 ## Development server
 
