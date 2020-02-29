@@ -4,6 +4,7 @@
     <th scope="col">id</th>
     <th scope="col">description</th>
     <th scope="col">expenseDate</th>
+    <th scope="col">location</th>
     <th></th>
   </tr>
   </thead>
@@ -12,6 +13,7 @@
     <td>{{expense.id}}</td>
     <td>{{expense.description}}</td>
     <td>{{expense.expenseDate}}</td>
+    <td>{{expense.location}}</td>
     <button type="button" class="btn btn-outline-danger" (click)="deleteExpense(expense)">Delete</button>
   </tr>
   <tr>

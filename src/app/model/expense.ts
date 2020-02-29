@@ -4,4 +4,5 @@ export interface Expense {
   description: string;
   categoryId: string;
   userId: string;
+  location: string;
 }
