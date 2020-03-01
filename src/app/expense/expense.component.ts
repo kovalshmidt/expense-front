@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Expense} from "../model/expense";
-import {ApiService} from "../shared/api.service";
+import {Expense} from '../model/expense';
+import {ApiService} from '../shared/api.service';
 
 @Component({
   selector: 'app-expense',
@@ -10,12 +10,13 @@ import {ApiService} from "../shared/api.service";
 export class ExpenseComponent implements OnInit {
 
   expenses: Expense[] = [];
+  expense: Expense;
 
   constructor(private apiService: ApiService) {
   }
 
   ngOnInit(): void {
-    this.getAllExpenses()
+    this.getAllExpenses();
   }
 
   getAllExpenses() {
@@ -26,7 +27,7 @@ export class ExpenseComponent implements OnInit {
       },
       err => {
         console.log(err.toString());
-        alert("An error has occurred while getting the expense")
+        alert('An error has occurred while getting the expense');
       }
     );
   }
@@ -34,11 +35,11 @@ export class ExpenseComponent implements OnInit {
   getExpenseById(expense: Expense) {
     this.apiService.getExpenseById(expense.id).subscribe(
       res => {
-        this.expenses = res;
+        this.expense = res;
       },
       err => {
         console.log(err.toString());
-        alert("An error has occurred while getting the expense by id")
+        alert('An error has occurred while getting the expense by id');
       }
     );
   }
@@ -49,23 +50,24 @@ export class ExpenseComponent implements OnInit {
       },
       err => {
         console.log(err.toString());
-        alert("An error has occurred while updating the expense")
+        alert('An error has occurred while updating the expense');
       }
     );
   }
 
   deleteExpense(expense: Expense) {
-    if (confirm("Are you sure you want delete this expense?"))
+    if (confirm('Are you sure you want delete this expense?')) {
       this.apiService.deleteExpense(expense.id).subscribe(
         res => {
-          let indexOfExpense =this.expenses.indexOf(expense);
+          const indexOfExpense = this.expenses.indexOf(expense);
           this.expenses.splice(indexOfExpense, 1);
         },
         err => {
           console.log(err.toString());
-          alert("An error has occurred while deleting the expense")
+          alert('An error has occurred while deleting the expense');
         }
       );
+    }
   }
 
   saveExpense(saveExpense: Expense) {
@@ -74,7 +76,7 @@ export class ExpenseComponent implements OnInit {
       },
       err => {
         console.log(err.toString());
-        alert("An error has occurred while saving the expense")
+        alert('An error has occurred while saving the expense');
       }
     );
   }
