@@ -69,9 +69,20 @@ export class ExpenseComponent implements OnInit {
     }
   }
 
-  saveExpense(saveExpense: Expense) {
-    this.apiService.saveExpense(saveExpense).subscribe(
+  saveExpense(expenses: Expense[]) {
+    let newExpense : { description: string; location: string; categoryId: string; expenseDate: string } = {
+      location: this.expense.location,
+      description: this.expense.description,
+      expenseDate: this.expense.expenseDate,
+      categoryId: this.expense.categoryId
+    };
+        this.apiService.saveExpense(newExpense).subscribe(
       res => {
+        newExpense.location = res.location;
+        newExpense.description = res.description;
+        newExpense.categoryId = res.categoryId;
+        newExpense.expenseDate = res.expenseDate;
+        this.expenses.push(<Expense>newExpense);
       },
       err => {
         console.log(err.toString());
