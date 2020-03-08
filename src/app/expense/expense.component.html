@@ -3,7 +3,6 @@
   <tr>
     <th scope="col">id</th>
     <th scope="col">Description</th>
-    <th scope="col">Category</th>
     <th scope="col">Location</th>
     <th scope="col">ExpenseDate</th>
     <th scope="col">Action</th>
@@ -13,7 +12,6 @@
   <tr *ngFor="let expense of expenses">
     <td>{{expense.id}}</td>
     <td>{{expense.description}}</td>
-    <td>{{expense.categoryId}}</td>
     <td>{{expense.location}}</td>
     <td>{{expense.expenseDate}}</td>
     <button type="button" class="btn btn-outline-danger" (click)="deleteExpense(expense)">Delete</button>

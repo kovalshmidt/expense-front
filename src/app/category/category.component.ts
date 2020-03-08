@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {ApiService} from "../shared/api.service";
-import {Category} from "../model/Category";
+import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../shared/api.service';
+import {Category} from '../model/Category';
 
 
 @Component({
@@ -10,27 +10,29 @@ import {Category} from "../model/Category";
 })
 export class CategoryComponent implements OnInit {
 
-  categories : Category[] = [];
-  category: Category;
+  categories: Category[] = [];
+  category: Category = {
+    id: null,
+    name: null
+  };
 
-  constructor(private  apiService : ApiService) { }
+  constructor(private  apiService: ApiService) {
+  }
 
   ngOnInit() {
     this.getAllCategories();
-    this.getCategoryById('2');
   }
 
-  getAllCategories(){
+  getAllCategories() {
 
     this.apiService.getAllCategories().subscribe(
       res => {
         this.categories = res;
         console.log(this.categories);
       },
-
       err => {
-        console.log(err.toString())
-        alert("An error has occurred while getting the categories");
+        console.log(err.toString());
+        alert('An error has occurred while getting the categories');
       }
     );
   }
@@ -40,8 +42,8 @@ export class CategoryComponent implements OnInit {
       res => {
       },
       err => {
-        console.log(err.toString())
-        alert("An error has occurred while updating the category");
+        console.log(err.toString());
+        alert('An error has occurred while updating the category');
       }
     );
   }
@@ -49,24 +51,26 @@ export class CategoryComponent implements OnInit {
   saveCategory(saveCategory: Category) {
     this.apiService.saveCategory(saveCategory).subscribe(
       res => {
+        this.categories.push(res);
+        console.log(this.categories);
       },
       err => {
-        console.log(err.toString())
-        alert("An error has occurred while saving the category");
+        console.log(err.toString());
+        alert('An error has occurred while saving the category');
       }
     );
   }
 
   deleteCategory(category: Category) {
-    if (confirm("Are you sure to delete the category")){
+    if (confirm('Are you sure to delete the category')) {
       this.apiService.deleteCategory(category.id).subscribe(
         res => {
-          let indexOfCategory =this.categories.indexOf(category);
+          const indexOfCategory = this.categories.indexOf(category);
           this.categories.splice(indexOfCategory, 1);
         },
         err => {
-          console.log(err.toString())
-          alert("An error has occurred while deleting the category");
+          console.log(err.toString());
+          alert('An error has occurred while deleting the category');
         }
       );
     }
@@ -79,7 +83,7 @@ export class CategoryComponent implements OnInit {
       },
       err => {
         console.log(err.toString());
-        alert("An error has occurred while downloading the category");
+        alert('An error has occurred while downloading the category');
       }
     );
   }
