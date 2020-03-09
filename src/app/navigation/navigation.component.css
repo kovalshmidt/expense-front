@@ -8,15 +8,17 @@
   margin-right: 10px;
   background: none;
   border: 2px solid #74b9ff;
-  color: #74b9ff;
+  color: #fff;
 }
 
-#signup_button {
+#signup_button{
   background: none;
   border: 2px solid #00cec9;
 }
 
-#ddmenu {
+#sign_up_menu {
+  display: flex;
+  flex-direction: row;
   right: 10px;
   position: absolute;
 }
