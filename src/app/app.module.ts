@@ -47,7 +47,6 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
