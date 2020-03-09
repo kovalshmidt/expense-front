@@ -1,0 +1,6 @@
+.Row > div {
+  margin-top: 30px;
+  float: left;
+  width: 40%;
+  margin-right: 5%;
+}

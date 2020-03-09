@@ -1,11 +1,37 @@
-<form (ngSubmit)="saveCategory(this.category)">
-  <div class="form-group">
-    <label for="categoryId">Id</label>
-    <input  [(ngModel)]="category.id" name="id" type="text" class="form-control" id="categoryId"  placeholder="Enter id">
+<div class="Row">
+  <div >
+    <form (ngSubmit)="saveCategory(this.category)">
+      <div class="form-group">
+        <label for="categoryId">Id</label>
+        <input  [(ngModel)]="category.id" name="id" type="text" class="form-control" id="categoryId"  placeholder="Enter id">
+      </div>
+      <div class="form-group">
+        <label for="categoryName">Name</label>
+        <input  [(ngModel)]="category.name" name="name"  type="text" class="form-control" id="categoryName"  placeholder="Enter name">
+      </div>
+      <button type="submit" class="btn btn-primary" >Submit</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="categoryName">Name</label>
-    <input  [(ngModel)]="category.name" name="name"  type="text" class="form-control" id="categoryName"  placeholder="Enter name">
+  <div >
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Description</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let category of categories">
+        <td>{{category.id}}</td>
+        <td>{{category.name}}</td>
+
+      </tr>
+      <tr>
+
+      </tbody>
+    </table>
   </div>
-  <button type="submit" class="btn btn-primary" >Submit</button>
-</form>
+</div>
+
+
