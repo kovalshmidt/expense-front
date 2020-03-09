@@ -13,5 +13,45 @@
     <li class="nav-item">
       <a class="nav-link" routerLink="/expense">Expenses</a>
     </li>
+    <li class="nav-item" id="ddmenu">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="signup_button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Sign Up
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuMenu">
+          <div class="sign_up_form_wrapper">
+            <div class="sign_up_title_cont">
+              <b>
+                <p class="sign_up_title">Sign Up</p>
+              </b>
+            </div>
+            <div class="su_email_form">
+              <input type="email" placeholder="Email Address" class="form-control su_form">
+            </div>
+            <div class="su_username_form">
+              <input type="text" class="form-control su_form" placeholder="Username">
+            </div>
+            <div class="su_password_form">
+              <input type="password" class="form-control su_form" placeholder="Password">
+            </div>
+            <div class="su_button_cont">
+              <button type="button" class="btn btn-dark su_button ">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+              integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+              crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+              integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+              crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+              integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+              crossorigin="anonymous">
+      </script>
+    </li>
   </ul>
 </nav>
