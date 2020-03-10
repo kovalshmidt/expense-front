@@ -1,41 +1,43 @@
-<form  class="border border-light p-5">
-  <p class="h4 mb-4 text-center">Sign in</p>
-  <label for="titleInp" class="active">Title</label>
-  <input type="text" [(ngModel)]="expense.description" id="titleInp" class="form-control mb-4" placeholder="">
-  <label for="dateInp">Text input Label</label>
-  <input type="date" [(ngModel)]="expense.expenseDate" id="dateInp" class="form-control mb-4" placeholder="">
-  <label for="select">Category</label>
-  <select class="browser-default custom-select mb-4" id="select">
-    <option value="" disabled="" selected="">Category</option>
-    <option value="1">Travel</option>
-    <option value="2">Purchase</option>
-    <option value="3">Transfer</option>
-  </select>
-  <label for="locationInp">Location</label>
-  <input type="text" [(ngModel)]="expense.location" id="locationInp" class="form-control mb-4" placeholder="">
-  <button (click)="saveExpense(this.expenses)" class="btn btn-info btn-block my-4" type="submit">Save</button>
-</form>
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">id</th>
-    <th scope="col">Description</th>
-    <th scope="col">Category</th>
-    <th scope="col">Location</th>
-    <th scope="col">ExpenseDate</th>
-    <th scope="col">Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let expense of expenses">
-    <td>{{expense.id}}</td>
-    <td>{{expense.description}}</td>
-    <td>{{expense.categoryId}}</td>
-    <td>{{expense.location}}</td>
-    <td>{{expense.expenseDate}}</td>
-    <button type="button" class="btn btn-outline-danger" (click)="deleteExpense(expense)">Delete</button>
-  </tr>
-  <tr>
-
-  </tbody>
-</table>
+<div class="table_cont">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Description</th>
+      <th scope="col">Category</th>
+      <th scope="col">Location</th>
+      <th scope="col">ExpenseDate</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let expense of expenses">
+      <td>{{expense.id}}</td>
+      <td>{{expense.description}}</td>
+      <td>{{expense.categoryId}}</td>
+      <td>{{expense.location}}</td>
+      <td>{{expense.expenseDate}}</td>
+      <button type="button" class="btn btn-outline-danger" (click)="deleteExpense(expense)">Delete</button>
+    </tr>
+    <tr>
+    </tbody>
+  </table>
+</div>
+<div class="form_cont">
+  <form (ngSubmit)="saveExpense(this.expense)" class="border border-light p-5">
+    <label for="titleInp" class="active">Title</label>
+    <input type="text" [(ngModel)]="expense.description" name="description" id="titleInp" class="form-control mb-4"
+           placeholder="">
+    <label for="dateInp">Text input Label</label>
+    <input type="date" [(ngModel)]="expense.expenseDate" name="expenseDate" id="dateInp" class="form-control mb-4"
+           placeholder="">
+    <label for="select">Category</label>
+    <select  [(ngModel)]="expense.categoryId" name="categoryId" class="browser-default custom-select mb-4" id="select">
+      <option  [ngValue]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+    </select>
+    <label for="locationInp">Location</label>
+    <input type="text" [(ngModel)]="expense.location" name="location" id="locationInp" class="form-control mb-4"
+           placeholder="">
+    <button class="btn btn-info btn-block my-4" type="submit">Save</button>
+  </form>
+</div>
