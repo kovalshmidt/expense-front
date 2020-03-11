@@ -42,7 +42,8 @@ export class ExpenseComponent implements OnInit {
       }
     );
   }
-  getAllCategories(){
+
+  getAllCategories() {
     this.apiService.getAllCategories().subscribe(
       res => {
         this.categories = res;

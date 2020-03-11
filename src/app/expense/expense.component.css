@@ -1,3 +1,30 @@
-#dateInp{
-  width: 20%;
+.wrapper{
+  position: absolute;
+  margin-top: 50px;
 }
+.table_cont{
+  margin-top: 20px;
+}
+.dropdown-menu{
+  width: 225%;
+}
+.expense_title{
+  position: absolute;
+  transform: translate(-50%);
+  left: 50%;
+  padding-bottom: 10px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+.form_cont{
+  width: 300px;
+  padding-bottom: 0;
+}
+
+.expense_inp{
+  width: 100%;
+}
+.dropdown_expense{
+  z-index: 5;
+}
+
