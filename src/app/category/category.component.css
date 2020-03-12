@@ -4,3 +4,13 @@
   width: 40%;
   margin-right: 5%;
 }
+.saveCategory > div{
+  float: left;
+  margin-right: 5%;
+}
+.b-save{
+  margin-top: 7%;
+}
+.form-group {
+  width: 70%;
+}
