@@ -34,7 +34,6 @@ export class ExpenseComponent implements OnInit {
     this.apiService.getAllExpenses().subscribe(
       res => {
         this.expenses = res;
-        console.log(this.expenses);
       },
       err => {
         console.log(err.toString());
