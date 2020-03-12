@@ -10,6 +10,7 @@ import {Category} from '../model/Category';
 })
 export class CategoryComponent implements OnInit {
 
+  message: string = '';
   categories: Category[] = [];
   category: Category = {
     id: null,
@@ -53,10 +54,12 @@ export class CategoryComponent implements OnInit {
       res => {
         this.categories.push(res);
         console.log(this.categories);
+        this.message = 'Category successfully added';
       },
       err => {
         console.log(err.toString());
         alert('An error has occurred while saving the category');
+        this.message = 'Error';
       }
     );
   }
@@ -87,4 +90,8 @@ export class CategoryComponent implements OnInit {
       }
     );
   }
+
+
 }
+
+
