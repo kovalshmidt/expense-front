@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Expense} from '../model/expense';
 import {ApiService} from '../shared/api.service';
+import {Category} from "../model/category";
 
 @Component({
   selector: 'app-expense',
@@ -8,15 +9,25 @@ import {ApiService} from '../shared/api.service';
   styleUrls: ['./expense.component.css']
 })
 export class ExpenseComponent implements OnInit {
-
+  categories: Category[] = [];
   expenses: Expense[] = [];
-  expense: Expense;
+  expense: Expense = {
+    id: null,
+    expenseDate: null,
+    description: null,
+    categoryId: null,
+    userId: null,
+    location: null
+  };
 
   constructor(private apiService: ApiService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit()
+    :
+    void {
     this.getAllExpenses();
+    this.getAllCategories();
   }
 
   getAllExpenses() {
@@ -31,7 +42,23 @@ export class ExpenseComponent implements OnInit {
     );
   }
 
-  getExpenseById(expense: Expense) {
+  getAllCategories() {
+    this.apiService.getAllCategories().subscribe(
+      res => {
+        this.categories = res;
+        console.log(this.categories);
+      },
+      err => {
+        console.log(err.toString());
+        alert('An error has occurred while getting the categories');
+      }
+    );
+  }
+
+  getExpenseById(expense
+                   :
+                   Expense
+  ) {
     this.apiService.getExpenseById(expense.id).subscribe(
       res => {
         this.expense = res;
@@ -43,7 +70,10 @@ export class ExpenseComponent implements OnInit {
     );
   }
 
-  updateExpense(updateExpense: Expense) {
+  updateExpense(updateExpense
+                  :
+                  Expense
+  ) {
     this.apiService.updateExpense(updateExpense).subscribe(
       res => {
       },
@@ -69,20 +99,10 @@ export class ExpenseComponent implements OnInit {
     }
   }
 
-  saveExpense(expenses: Expense[]) {
-    let newExpense : { description: string; location: string; categoryId: string; expenseDate: string } = {
-      location: this.expense.location,
-      description: this.expense.description,
-      expenseDate: this.expense.expenseDate,
-      categoryId: this.expense.categoryId
-    };
-        this.apiService.saveExpense(newExpense).subscribe(
+  saveExpense(expense: Expense) {
+    this.apiService.saveExpense(expense).subscribe(
       res => {
-        newExpense.location = res.location;
-        newExpense.description = res.description;
-        newExpense.categoryId = res.categoryId;
-        newExpense.expenseDate = res.expenseDate;
-        this.expenses.push(<Expense>newExpense);
+        this.expenses.push(res);
       },
       err => {
         console.log(err.toString());
