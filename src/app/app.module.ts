@@ -12,6 +12,7 @@ import {HomeComponent} from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 
 
+
 const appRoutes: Routes = [
   {
     path: 'home',
@@ -45,7 +46,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   bootstrap: [AppComponent]

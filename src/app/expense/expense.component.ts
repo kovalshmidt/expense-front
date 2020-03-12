@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Expense} from '../model/expense';
 import {ApiService} from '../shared/api.service';
+import {Category} from "../model/category";
 
 @Component({
   selector: 'app-expense',
@@ -8,15 +9,25 @@ import {ApiService} from '../shared/api.service';
   styleUrls: ['./expense.component.css']
 })
 export class ExpenseComponent implements OnInit {
-
+  categories: Category[] = [];
   expenses: Expense[] = [];
-  expense: Expense;
+  expense: Expense = {
+    id: null,
+    expenseDate: null,
+    description: null,
+    categoryId: null,
+    userId: null,
+    location: null
+  };
 
   constructor(private apiService: ApiService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit()
+    :
+    void {
     this.getAllExpenses();
+    this.getAllCategories();
   }
 
   getAllExpenses() {
@@ -31,7 +42,23 @@ export class ExpenseComponent implements OnInit {
     );
   }
 
-  getExpenseById(expense: Expense) {
+  getAllCategories() {
+    this.apiService.getAllCategories().subscribe(
+      res => {
+        this.categories = res;
+        console.log(this.categories);
+      },
+      err => {
+        console.log(err.toString());
+        alert('An error has occurred while getting the categories');
+      }
+    );
+  }
+
+  getExpenseById(expense
+                   :
+                   Expense
+  ) {
     this.apiService.getExpenseById(expense.id).subscribe(
       res => {
         this.expense = res;
@@ -43,7 +70,10 @@ export class ExpenseComponent implements OnInit {
     );
   }
 
-  updateExpense(updateExpense: Expense) {
+  updateExpense(updateExpense
+                  :
+                  Expense
+  ) {
     this.apiService.updateExpense(updateExpense).subscribe(
       res => {
       },
@@ -69,9 +99,10 @@ export class ExpenseComponent implements OnInit {
     }
   }
 
-  saveExpense(saveExpense: Expense) {
-    this.apiService.saveExpense(saveExpense).subscribe(
+  saveExpense(expense: Expense) {
+    this.apiService.saveExpense(expense).subscribe(
       res => {
+        this.expenses.push(res);
       },
       err => {
         console.log(err.toString());

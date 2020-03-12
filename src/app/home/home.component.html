@@ -1,4 +1,19 @@
 
-<p>home works!</p>
-<app-category></app-category>
-<app-expense></app-expense>
+<div class="jumbotron">
+  <div id="jumbotrondiv">
+  <h1>Expenses:</h1>
+  <ul>
+    <li *ngFor="let expense of expenses">
+   {{expense.description}}
+    </li>
+  </ul>
+  </div>
+  <div>
+    <h1>Categories:</h1>
+    <ul>
+      <li *ngFor="let category of categories">
+        {{category.name}}
+      </li>
+    </ul>
+  </div>
+</div>
