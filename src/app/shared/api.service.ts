@@ -42,7 +42,7 @@ export class ApiService {
     return this.http.delete(this.DELETE_EXPENSE_URL + id);
   }
 
-  saveExpense(expense: Expense): Observable<Expense> {
+  saveExpense(expense: { description: string; location: string; categoryId: string; expenseDate: string }): Observable<Expense> {
     return this.http.post<Expense>(this.POST_EXPENSE_URL, expense);
   }
 
