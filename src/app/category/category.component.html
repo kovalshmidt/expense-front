@@ -12,6 +12,8 @@
     </form>
   </div>
   <div >
+
+
     <table class="table">
       <thead>
       <tr>
@@ -20,7 +22,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let category of categories">
-        <td>{{category.name}}</td>
+        <td><input  [(ngModel)]="category.name" (change)="updateCategory(category)"  class="form-control"/></td>
         <button type="button" class="btn btn-outline-danger" (click)="deleteCategory(category)">Delete</button>
       </tr>
       <tr>
