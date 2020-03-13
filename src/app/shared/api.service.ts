@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {Expense} from "../model/expense";
-import {Category} from "../model/Category";
+import {Expense} from '../model/expense';
+import {Category} from '../model/category';
 
 @Injectable({
   providedIn: 'root'
@@ -46,24 +46,24 @@ export class ApiService {
     return this.http.post<Expense>(this.POST_EXPENSE_URL, expense);
   }
 
-  getAllCategories(): Observable<Category[]>{
-    return  this.http.get<Category[]>(this.GET_ALL_CATEGORIES_URL);
+  getAllCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.GET_ALL_CATEGORIES_URL);
   }
 
-  getCategoryById(id : string): Observable<Category>{
-    return  this.http.get<Category>(this.GET_CATEGORY_BY_ID + id);
+  getCategoryById(id: string): Observable<Category> {
+    return this.http.get<Category>(this.GET_CATEGORY_BY_ID + id);
   }
 
-  saveCategory(category: Category): Observable<Category>{
-    return this.http.post<Category>(this.POST_CATEGORY_URL, category );
+  saveCategory(category: Category): Observable<Category> {
+    return this.http.post<Category>(this.POST_CATEGORY_URL, category);
   }
 
-  updateCategory(category: Category): Observable<Category>{
-    return this.http.put<Category>(this.PUT_CATEGORY_URL, category );
+  updateCategory(category: Category): Observable<Category> {
+    return this.http.put<Category>(this.PUT_CATEGORY_URL, category);
   }
 
-  deleteCategory(id: string): Observable<any>{
-    return  this.http.delete(this.DELETE_CATEGORY_URL + id);
+  deleteCategory(id: string): Observable<any> {
+    return this.http.delete(this.DELETE_CATEGORY_URL + id);
   }
 
 
