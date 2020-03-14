@@ -22,7 +22,6 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">id</th>
       <th scope="col">Description</th>
       <th scope="col">Category</th>
       <th scope="col">Location</th>
@@ -32,11 +31,10 @@
     </thead>
     <tbody>
     <tr *ngFor="let expense of expenses" class="expense">
-      <td>{{expense.id}}</td>
-      <td>{{expense.description}}</td>
-      <td>{{expense.categoryId}}</td>
-      <td>{{expense.location}}</td>
-      <td>{{expense.expenseDate}}</td>
+      <td><input [(ngModel)]="expense.description"   (change)="updateExpense(expense)" class="form-control" /></td>
+      <td><input [(ngModel)]="expense.categoryId"   (change)="updateExpense(expense)" class="form-control" /></td>
+      <td><input [(ngModel)]="expense.location"   (change)="updateExpense(expense)" class="form-control" /></td>
+      <td><input [(ngModel)]="expense.expenseDate"   (change)="updateExpense(expense)" class="form-control"/></td>
       <button type="button" class="btn btn-outline-danger" (click)="deleteExpense(expense)">Delete</button>
     </tr>
     <tr>
