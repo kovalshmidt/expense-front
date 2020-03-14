@@ -1,9 +1,10 @@
-.wrapper{
-  position: absolute;
-  margin-top: 50px;
+.btn-group{
+  margin-top: 25px;
+  padding-bottom: 20px;
 }
-.table_cont{
-  margin-top: 20px;
+
+.table{
+  width: 100%;
 }
 .dropdown-menu{
   width: 225%;
@@ -24,10 +25,7 @@
 .expense_inp{
   width: 100%;
 }
-.dropdown_expense{
-  z-index: 5;
-}
-.test{
-  height:  1000px;
-}
+/*.test{*/
+/*  height:  1000px;*/
+/*}*/
 
