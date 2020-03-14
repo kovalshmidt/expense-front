@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../shared/api.service';
 import {Category} from '../model/category';
+import {NgForm} from "@angular/forms";
 
 
 @Component({
@@ -10,7 +11,8 @@ import {Category} from '../model/category';
 })
 export class CategoryComponent implements OnInit {
 
-  message = '';
+  message1 = '';
+  message2 = '';
   categories: Category[] = [];
   category: Category = {
     id: null,
@@ -48,19 +50,21 @@ export class CategoryComponent implements OnInit {
     );
   }
 
-  saveCategory(saveCategory: Category) {
+  saveCategory(saveCategory: Category, f: NgForm) {
     this.apiService.saveCategory(saveCategory).subscribe(
       res => {
         this.categories.push(res);
         console.log(this.categories);
-        this.message = 'Category successfully added';
+        this.message1 = 'Successfully saved';
       },
       err => {
         console.log(err.toString());
-        alert('An error has occurred while saving the category');
-        this.message = 'Error';
+        this.message2 = 'An error has occurred';
       }
     );
+    if (f.form.valid) {
+      f.resetForm();
+    }
   }
 
   deleteCategory(category: Category) {
