@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../shared/api.service';
-import {Category} from '../model/Category';
+import {Category} from '../model/category';
 
 
 @Component({
@@ -10,7 +10,7 @@ import {Category} from '../model/Category';
 })
 export class CategoryComponent implements OnInit {
 
-  message: string = '';
+  message = '';
   categories: Category[] = [];
   category: Category = {
     id: null,
@@ -29,7 +29,6 @@ export class CategoryComponent implements OnInit {
     this.apiService.getAllCategories().subscribe(
       res => {
         this.categories = res;
-        console.log(this.categories);
       },
       err => {
         console.log(err.toString());

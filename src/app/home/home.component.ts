@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {Expense} from "../model/expense";
-import {Category} from "../model/Category";
-import {ApiService} from "../shared/api.service";
+import {Component, OnInit} from '@angular/core';
+import {Expense} from '../model/expense';
+import {Category} from '../model/category';
+import {ApiService} from '../shared/api.service';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +10,13 @@ import {ApiService} from "../shared/api.service";
 })
 export class HomeComponent implements OnInit {
   expenses: Expense[] = [];
-  categories : Category[] = [];
+  categories: Category[] = [];
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) {
+  }
 
   ngOnInit(): void {
-  this.getAllItems();
+    this.getAllItems();
   }
 
   getAllItems() {
