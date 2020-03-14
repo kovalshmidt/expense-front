@@ -10,7 +10,7 @@
     </b>
       <form novalidate #f="ngForm"
             name="form"
-            (ngSubmit)="f.form.valid && saveExpense(this.expense); f.reset();"
+            (ngSubmit)="f.form.valid && saveExpense(this.expense, this.f); "
             class="border border-light p-5 expense_form">
         <input type="text"
                required
