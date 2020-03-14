@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Expense} from '../model/expense';
 import {ApiService} from '../shared/api.service';
-import {Category} from "../model/category";
 import {NgForm} from "@angular/forms";
+import {Category} from '../model/category';
 
 @Component({
   selector: 'app-expense',
