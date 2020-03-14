@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Expense} from '../model/expense';
 import {ApiService} from '../shared/api.service';
-import {NgForm} from "@angular/forms";
 import {Category} from '../model/category';
 
 @Component({
@@ -12,7 +11,6 @@ import {Category} from '../model/category';
 export class ExpenseComponent implements OnInit {
   categories: Category[] = [];
   expenses: Expense[] = [];
-  f: NgForm;
   expense: Expense = {
     id: null,
     expenseDate: null,
@@ -21,7 +19,6 @@ export class ExpenseComponent implements OnInit {
     userId: null,
     location: null
   };
-
 
   constructor(private apiService: ApiService) {
   }
@@ -58,7 +55,10 @@ export class ExpenseComponent implements OnInit {
     );
   }
 
-  getExpenseById(expense: Expense) {
+  getExpenseById(expense
+                   :
+                   Expense
+  ) {
     this.apiService.getExpenseById(expense.id).subscribe(
       res => {
         this.expense = res;
@@ -70,7 +70,10 @@ export class ExpenseComponent implements OnInit {
     );
   }
 
-  updateExpense(updateExpense: Expense) {
+  updateExpense(updateExpense
+                  :
+                  Expense
+  ) {
     this.apiService.updateExpense(updateExpense).subscribe(
       res => {
       },
@@ -96,20 +99,16 @@ export class ExpenseComponent implements OnInit {
     }
   }
 
-
-  saveExpense(expense: Expense, f: NgForm) {
+  saveExpense(expense: Expense) {
     this.apiService.saveExpense(expense).subscribe(
       res => {
         this.expenses.push(res);
       },
-
       err => {
         console.log(err.toString());
         alert('An error has occurred while saving the expense');
       }
     );
-    if (f.form.valid) {
-      f.resetForm();
-    }
   }
+
 }

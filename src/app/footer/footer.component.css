@@ -1,11 +1,8 @@
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  /* Тут укажи высоту футера */
   height: 56px;
-  left: 0;
   background-color: #343a40!important;
   color: #fff;
+  z-index: 9999;
 }
 
