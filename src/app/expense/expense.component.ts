@@ -19,8 +19,13 @@ export class ExpenseComponent implements OnInit {
     userId: null,
     location: null
   };
+  category: Category = {
+    id: null,
+    name: null
+  };
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService
+  ) {
   }
 
   ngOnInit()
@@ -84,7 +89,10 @@ export class ExpenseComponent implements OnInit {
     );
   }
 
-  deleteExpense(expense: Expense) {
+  deleteExpense(expense
+                  :
+                  Expense
+  ) {
     if (confirm('Are you sure you want delete this expense?')) {
       this.apiService.deleteExpense(expense.id).subscribe(
         res => {
@@ -99,7 +107,10 @@ export class ExpenseComponent implements OnInit {
     }
   }
 
-  saveExpense(expense: Expense) {
+  saveExpense(expense
+                :
+                Expense
+  ) {
     this.apiService.saveExpense(expense).subscribe(
       res => {
         this.expenses.push(res);
@@ -109,6 +120,22 @@ export class ExpenseComponent implements OnInit {
         alert('An error has occurred while saving the expense');
       }
     );
+  }
+
+  getCategoryById(categoryId
+                    :
+                    string
+  ) {
+    this.apiService.getCategoryById(categoryId).subscribe(
+      res => {
+        this.category = res;
+      },
+      err => {
+        console.log(err.toString());
+        alert('An error has occurred while getting the category');
+      }
+
+    )
   }
 
 }
