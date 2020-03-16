@@ -11,7 +11,7 @@
 }
 
 .form-group {
-  width: 20%;
+  width: 50%;
 }
 .table{
   width: 40%;
@@ -26,5 +26,10 @@
 }
 .mess-r{
   color: red;
+}
+.form-group > div{
+  float: left;
+  width: 40%;
+  margin-right: 2%;
 }
 
