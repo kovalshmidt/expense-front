@@ -32,7 +32,7 @@
     <tbody>
     <tr *ngFor="let expense of expenses" class="expense">
       <td><input [(ngModel)]="expense.description"   (change)="updateExpense(expense)" class="form-control" /></td>
-      <td><input [(ngModel)]="getCategory(expense.categoryId).name"   (change)="updateExpense(expense)" class="form-control" /></td>
+      <td><input [(ngModel)]="expense.categoryId"   (change)="updateExpense(expense)" class="form-control" /></td>
       <td><input [(ngModel)]="expense.location"   (change)="updateExpense(expense)" class="form-control" /></td>
       <td><input [(ngModel)]="expense.expenseDate"   (change)="updateExpense(expense)" class="form-control"/></td>
       <button type="button" class="btn btn-outline-danger" (click)="deleteExpense(expense)">Delete</button>
