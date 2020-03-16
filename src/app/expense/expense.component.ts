@@ -23,9 +23,7 @@ export class ExpenseComponent implements OnInit {
   constructor(private apiService: ApiService) {
   }
 
-  ngOnInit()
-    :
-    void {
+  ngOnInit(): void {
     this.getAllExpenses();
     this.getAllCategories();
   }
@@ -55,10 +53,7 @@ export class ExpenseComponent implements OnInit {
     );
   }
 
-  getExpenseById(expense
-                   :
-                   Expense
-  ) {
+  getExpenseById(expense: Expense) {
     this.apiService.getExpenseById(expense.id).subscribe(
       res => {
         this.expense = res;
@@ -70,10 +65,7 @@ export class ExpenseComponent implements OnInit {
     );
   }
 
-  updateExpense(updateExpense
-                  :
-                  Expense
-  ) {
+  updateExpense(updateExpense: Expense) {
     this.apiService.updateExpense(updateExpense).subscribe(
       res => {
       },

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../shared/api.service';
 import {Category} from '../model/category';
-import {NgForm} from "@angular/forms";
+import {NgForm} from '@angular/forms';
 
 
 @Component({
