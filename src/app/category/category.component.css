@@ -1,16 +1,22 @@
-.Row > div {
+.Row  {
   margin-top: 30px;
-  float: left;
-  width: 40%;
-  margin-right: 5%;
+  width: 100%;
 }
-.saveCategory > div{
-  float: left;
-  margin-right: 5%;
+.saveCategory{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
 }
 
 .form-group {
-  width: 70%;
+  width: 50%;
+}
+.table{
+  width: 40%;
+  margin-left: auto;
+  margin-right: 50px;
 }
 .btn-outline-danger{
   margin-top: 11%;
@@ -20,5 +26,10 @@
 }
 .mess-r{
   color: red;
+}
+.form-group > div{
+  float: left;
+  width: 40%;
+  margin-right: 2%;
 }
 
