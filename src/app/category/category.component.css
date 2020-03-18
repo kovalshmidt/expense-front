@@ -31,6 +31,9 @@
 }
 
 .mess-r {
+  position: absolute;
+  bottom: -105%;
+  left: 0;
   color: red;
 }
 
