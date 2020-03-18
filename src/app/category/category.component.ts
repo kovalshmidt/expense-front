@@ -59,7 +59,6 @@ export class CategoryComponent implements OnInit {
   }
 
   saveCategory(saveCategory: Category, f: NgForm) {
-    saveCategory = null;
     this.apiService.saveCategory(saveCategory).subscribe(
       res => {
         this.categories.push(res);
