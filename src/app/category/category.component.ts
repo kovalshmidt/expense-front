@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../shared/api.service';
 import {Category} from '../model/category';
 import {NgForm} from '@angular/forms';
-import {animate, state, style, transition, trigger} from "@angular/animations";
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
@@ -25,7 +25,6 @@ export class CategoryComponent implements OnInit {
     id: null,
     name: null
   };
-  м
 
   constructor(private  apiService: ApiService) {
   }
@@ -60,22 +59,23 @@ export class CategoryComponent implements OnInit {
   }
 
   saveCategory(saveCategory: Category, f: NgForm) {
+    saveCategory = null;
     this.apiService.saveCategory(saveCategory).subscribe(
       res => {
         this.categories.push(res);
         console.log(this.categories);
-        //Add message about successful save
-        this.messages.push({error: false, text: "Saved successfully"});
-        //Clear array with messages
+        // Add message about successful save
+        this.messages.push({error: false, text: 'Saved successfully'});
+        // Clear array with messages
         setTimeout(() => {
           this.messages = [];
         }, 2000);
       },
       err => {
         console.log(err.toString());
-        //Add message about error
-        this.messages.push({error: true, text: "An error has occurred"});
-        //Clear array with messages
+        // Add message about error
+        this.messages.push({error: true, text: 'An error has occurred'});
+        // Clear array with messages
         setTimeout(() => {
           this.messages = [];
         }, 2000);
