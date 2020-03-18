@@ -1,13 +1,11 @@
-.Row {
-  margin-top: 30px;
-  width: 100%;
+
+.Row  {
+  transform: translateY(30px);
 }
 
 .saveCategory {
   position: absolute;
   width: 100%;
-  display: flex;
-  flex-direction: column;
   margin-left: 50px;
 }
 
@@ -25,7 +23,10 @@
   margin-top: 11%;
 }
 
-.mess-g {
+.mess-g{
+  position: absolute;
+  bottom: -105%;
+  left: 0;
   color: green;
 }
 
