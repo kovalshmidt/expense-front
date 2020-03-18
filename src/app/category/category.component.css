@@ -1,7 +1,9 @@
+
 .Row  {
   transform: translateY(30px);
 }
-.saveCategory{
+
+.saveCategory {
   position: absolute;
   width: 100%;
   margin-left: 50px;
@@ -10,24 +12,29 @@
 .form-group {
   width: 50%;
 }
-.table{
+
+.table {
   width: 40%;
   margin-left: auto;
   margin-right: 50px;
 }
-.btn-outline-danger{
+
+.btn-outline-danger {
   margin-top: 11%;
 }
+
 .mess-g{
   position: absolute;
   bottom: -105%;
   left: 0;
   color: green;
 }
-.mess-r{
+
+.mess-r {
   color: red;
 }
-.form-group > div{
+
+.form-group > div {
   float: left;
   width: 40%;
   margin-right: 2%;
