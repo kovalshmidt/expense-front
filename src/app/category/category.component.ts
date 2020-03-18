@@ -2,17 +2,24 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../shared/api.service';
 import {Category} from '../model/category';
 import {NgForm} from '@angular/forms';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  styleUrls: ['./category.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(1000)),
+    ])
+  ]
 })
 export class CategoryComponent implements OnInit {
-
-  message1 = '';
-  message2 = '';
+  messages: InfoMessage[] = [];
   categories: Category[] = [];
   category: Category = {
     id: null,
@@ -24,6 +31,7 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
     this.getAllCategories();
+
   }
 
   getAllCategories() {
@@ -55,11 +63,21 @@ export class CategoryComponent implements OnInit {
       res => {
         this.categories.push(res);
         console.log(this.categories);
-        this.message1 = 'Successfully saved';
+        // Add message about successful save
+        this.messages.push({error: false, text: 'Saved successfully'});
+        // Clear array with messages
+        setTimeout(() => {
+          this.messages = [];
+        }, 2000);
       },
       err => {
         console.log(err.toString());
-        this.message2 = 'An error has occurred';
+        // Add message about error
+        this.messages.push({error: true, text: 'An error has occurred'});
+        // Clear array with messages
+        setTimeout(() => {
+          this.messages = [];
+        }, 2000);
       }
     );
     if (f.form.valid) {
@@ -93,8 +111,11 @@ export class CategoryComponent implements OnInit {
       }
     );
   }
+}
 
-
+export interface InfoMessage {
+  error: boolean;
+  text: string;
 }
 
 
