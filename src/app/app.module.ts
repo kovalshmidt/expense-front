@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {HomeComponent} from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {UserComponent} from "./user/user.component";
 
 
 
@@ -28,6 +29,10 @@ const appRoutes: Routes = [
     component: CategoryComponent
   },
   {
+    path: 'user',
+    component: UserComponent
+  },
+  {
     path: '',
     component: HomeComponent,
     pathMatch: 'full'
@@ -41,7 +46,8 @@ const appRoutes: Routes = [
     ExpenseComponent,
     CategoryComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
