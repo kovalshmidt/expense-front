@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Expense} from '../model/expense';
 import {Category} from '../model/category';
+import {User} from "../model/user";
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,12 @@ export class ApiService {
   private POST_CATEGORY_URL = `${this.BASE_URL}//category`;
   private PUT_CATEGORY_URL = `${this.BASE_URL}//category`;
   private DELETE_CATEGORY_URL = `${this.BASE_URL}/category//`;
+  // User
+  private GET_ALL_USERS_URL = `${this.BASE_URL}//users`;
+  private GET_USER_BY_ID = `${this.BASE_URL}//user//`;
+  private POST_USER_URL = `${this.BASE_URL}//user`;
+  private PUT_USER_URL = `${this.BASE_URL}//user`;
+  private DELETE_USER_URL = `${this.BASE_URL}/user//`;
 
   constructor(private http: HttpClient) {
   }
@@ -64,6 +71,26 @@ export class ApiService {
 
   deleteCategory(id: string): Observable<any> {
     return this.http.delete(this.DELETE_CATEGORY_URL + id);
+  }
+
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.GET_ALL_USERS_URL);
+  }
+
+  getUserById(id: string): Observable<User> {
+    return this.http.get<User>(this.GET_USER_BY_ID + id);
+  }
+
+  saveUser(user: User): Observable<User> {
+    return this.http.post<User>(this.POST_USER_URL, user);
+  }
+
+  updateUser(user: User): Observable<User> {
+    return this.http.put<User>(this.PUT_USER_URL, user);
+  }
+
+  deleteUser(id: string): Observable<any> {
+    return this.http.delete(this.DELETE_USER_URL + id);
   }
 
 
