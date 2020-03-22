@@ -1,1 +1,18 @@
-<p>user works!</p>
+
+<div class="table-cont">
+  <table class="table">
+    <thead>
+    <th scope="col" class="name-col">Name</th>
+    <th scope="col" class="email-col">Email</th>
+    <th></th>
+    </thead>
+    <tbody *ngFor="let user of users">
+    <tr>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td><button type="button" class="btn btn-outline-danger" (click)="userDelete(this.user)">Delete</button></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
