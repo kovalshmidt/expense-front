@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Expense} from '../model/expense';
 import {Category} from '../model/category';
-import {User} from "../model/user";
+import {User} from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -22,13 +22,13 @@ export class ApiService {
   private GET_CATEGORY_BY_ID = `${this.BASE_URL}//category//`;
   private POST_CATEGORY_URL = `${this.BASE_URL}//category`;
   private PUT_CATEGORY_URL = `${this.BASE_URL}//category`;
-  private DELETE_CATEGORY_URL = `${this.BASE_URL}/category//`;
+  private DELETE_CATEGORY_URL = `${this.BASE_URL}//category//`;
   // User
   private GET_ALL_USERS_URL = `${this.BASE_URL}//users`;
   private GET_USER_BY_ID = `${this.BASE_URL}//user//`;
   private POST_USER_URL = `${this.BASE_URL}//user`;
   private PUT_USER_URL = `${this.BASE_URL}//user`;
-  private DELETE_USER_URL = `${this.BASE_URL}/user//`;
+  private DELETE_USER_URL = `${this.BASE_URL}//user//`;
 
   constructor(private http: HttpClient) {
   }
