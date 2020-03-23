@@ -1,7 +1,29 @@
-
 th{
   text-align: center;
 }
 td{
   text-align: center;
 }
+#userform{
+  float: left;
+}
+.table-cont{
+  float: right;
+  margin-top: 30px;
+  margin-right: 50px;
+  width: 50%;
+}
+#userinput1{
+  margin-top: 30px;
+
+}
+input{
+  margin-top: 10px;
+  margin-left: 50px;
+  width: 125%;
+}
+button{
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
