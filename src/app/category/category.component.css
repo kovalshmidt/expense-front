@@ -1,6 +1,7 @@
 
 .Row  {
   transform: translateY(30px);
+  padding-bottom: 20px ;
 }
 
 .saveCategory {
