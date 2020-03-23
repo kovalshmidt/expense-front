@@ -42,4 +42,8 @@
   width: 40%;
   margin-right: 2%;
 }
+.invalid-input{
+  margin-top: 5%;
+  color: red;
+}
 
