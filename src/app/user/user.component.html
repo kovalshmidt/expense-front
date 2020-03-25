@@ -1,41 +1,43 @@
-<div id="userform">
-  <div>
-    <div class="form-group">
-      <div id="userinput1">
-        <input [(ngModel)]="user.name" name="name" type="text" class="form-control" placeholder="Enter name">
-      </div>
-      <div>
-        <input [(ngModel)]="user.email" name="email" type="text" class="form-control" placeholder="Enter email">
-      </div>
-      <div class="b-save">
-        <button type="submit" class="btn btn-primary" (click)="saveUser(user)">Save</button>
+<div class="user">
+  <div class="userform">
+    <div>
+      <div class="form-group">
+        <div class="userinput">
+          <input [(ngModel)]="user.name" name="name" type="text" class="form-control" placeholder="Enter name">
+        </div>
+        <div class="userinput">
+          <input [(ngModel)]="user.email" name="email" type="text" class="form-control" placeholder="Enter email">
+        </div>
+        <div class="b-save">
+          <button type="submit" class="btn btn-primary" (click)="saveUser(user)">Save</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
-<div class="table-cont">
-  <table class="table">
-    <thead>
-    <th scope="col" class="name-col">Name</th>
-    <th scope="col" class="email-col">Email</th>
-    <th></th>
-    </thead>
-    <tbody *ngFor="let user of users">
-    <tr>
+  <div >
+    <table class="table">
+      <thead>
+      <th scope="col" class="name-col">Name</th>
+      <th scope="col" class="email-col">Email</th>
+      <th></th>
+      </thead>
+      <tbody *ngFor="let user of users">
+      <tr>
 
-      <!--    For the future issue)))-->
-      <!--    if you read this you might have to do editable table-->
-      <!--    Good luck-->
-      <!--    <td><input [(ngModel)]="user.name" (change)="updateUser(user)" class="form-control"/></td>-->
-      <!--    <td><input [(ngModel)]="user.email" (change)="updateUser(user)" class="form-control"/></td>-->
-      <td>{{user.name}}</td>
-      <td>{{user.email}}</td>
-      <td>
-        <button type="button" class="btn btn-outline-danger" (click)="userDelete(this.user)">Delete</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+        <!--    For the future issue)))-->
+        <!--    if you read this you might have to do editable table-->
+        <!--    Good luck-->
+        <!--    <td><input [(ngModel)]="user.name" (change)="updateUser(user)" class="form-control"/></td>-->
+        <!--    <td><input [(ngModel)]="user.email" (change)="updateUser(user)" class="form-control"/></td>-->
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <button type="button" class="btn btn-outline-danger" (click)="userDelete(this.user)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
