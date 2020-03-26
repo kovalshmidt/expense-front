@@ -1,16 +1,49 @@
 <div id="userform">
   <div>
-    <div class="form-group">
+    <form class="form-group"  #f="ngForm" (ngSubmit)="f.form.valid && saveUser(this.user)">
       <div id="userinput1">
-        <input [(ngModel)]="user.name" name="name" type="text" class="form-control" placeholder="Enter name">
+        <input [(ngModel)]="user.name"
+               name="name" type="text"
+               class="form-control"
+               placeholder="Enter name"
+               #name="ngModel"
+               [ngClass]="{'is-invalid': f.submitted && name.invalid}"
+               required
+               minlength="3">
       </div>
       <div>
-        <input [(ngModel)]="user.email" name="email" type="text" class="form-control" placeholder="Enter email">
+        <input [(ngModel)]="user.email"
+               name="email" type="text"
+               class="form-control"
+               placeholder="Enter email"
+               #email="ngModel"
+               [ngClass]="{'is-invalid': f.submitted && email.invalid}"
+               required
+               minlength="6">
       </div>
       <div class="b-save">
-        <button type="submit" class="btn btn-primary" (click)="saveUser(user)">Save</button>
+        <button type="submit" class="btn btn-primary">Save</button>
       </div>
-    </div>
+      <div *ngIf="f.submitted && name.invalid" class="invalid-input" id="mess1">
+        <div *ngIf="name.errors?.minlength"><p class="redtext">The name should be longer</p></div>
+      </div>
+      <div *ngIf="f.submitted && email.invalid" class="invalid-input" id="mess2">
+        <div *ngIf="email.errors?.minlength"><p class="redtext">The email should be longer</p></div>
+      </div>
+      <div *ngFor="let message of messages" [@fadeInOut]>
+        <div *ngIf="message.error; else success">
+          <p class="mess-r">
+            {{message.text}}
+          </p>
+        </div>
+
+        <ng-template #success>
+          <p class="mess-g">
+            {{message.text}}
+          </p>
+        </ng-template>
+      </div>
+    </form>
   </div>
 </div>
 

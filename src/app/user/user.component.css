@@ -26,4 +26,40 @@ button{
   margin-left: 50px;
   margin-top: 10px;
 }
+#mess1{
+  margin-left: 50px;
+  margin-bottom: 8px;
+  margin-top: 13px;
+  color: red;
+}
+#mess2{
+  margin-left: 50px;
+  color: red;
+}
+.mess-r{
+  color: red;
+}
+.mess-g{
+  color: green;
+  margin-left: 50px;
+  margin-top: 13px;
+}
 
+/*alternative way to create animation*/
+/*#pos1 {*/
+/*  margin-left: 50px;*/
+/*  margin-top: 13px;*/
+/*  margin-bottom: 8px;*/
+/*  opacity: 0;*/
+/*  -webkit-animation: fadein 4s; !* Safari, Chrome and Opera > 12.1 *!*/
+/*  -moz-animation: fadein 4s; !* Firefox < 16 *!*/
+/*  -ms-animation: fadein 4s; !* Internet Explorer *!*/
+/*  -o-animation: fadein 4s; !* Opera < 12.1 *!*/
+/*  animation: fadein 4s;*/
+/*}*/
+
+/*@keyframes fadein {*/
+/*  0% { opacity: 0; }*/
+/*  33%   { opacity: 1; }*/
+/*  100% { opacity: 0; }*/
+/*}*/
