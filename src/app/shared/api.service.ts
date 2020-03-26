@@ -10,25 +10,25 @@ import {User} from '../model/user';
 })
 export class ApiService {
 
-  private BASE_URL = `http://localhost:8080` + `//api`;
+  private BASE_URL = `http://localhost:8080` + `/api`;
   // Expense
-  private GET_ALL_EXPENSES_URL = `${this.BASE_URL}//expenses`;
-  private GET_EXPENSE_BY_ID = `${this.BASE_URL}//expense//`;
-  private POST_EXPENSE_URL = `${this.BASE_URL}//expense`;
-  private PUT_EXPENSE_URL = `${this.BASE_URL}//expense`;
-  private DELETE_EXPENSE_URL = `${this.BASE_URL}//expense//`;
+  private GET_ALL_EXPENSES_URL = `${this.BASE_URL}/expenses`;
+  private GET_EXPENSE_BY_ID = `${this.BASE_URL}/expense/`;
+  private POST_EXPENSE_URL = `${this.BASE_URL}/expense`;
+  private PUT_EXPENSE_URL = `${this.BASE_URL}/expense`;
+  private DELETE_EXPENSE_URL = `${this.BASE_URL}/expense/`;
   // Category
-  private GET_ALL_CATEGORIES_URL = `${this.BASE_URL}//categories`;
-  private GET_CATEGORY_BY_ID = `${this.BASE_URL}//category//`;
-  private POST_CATEGORY_URL = `${this.BASE_URL}//category`;
-  private PUT_CATEGORY_URL = `${this.BASE_URL}//category`;
-  private DELETE_CATEGORY_URL = `${this.BASE_URL}//category//`;
+  private GET_ALL_CATEGORIES_URL = `${this.BASE_URL}/categories`;
+  private GET_CATEGORY_BY_ID = `${this.BASE_URL}/category/`;
+  private POST_CATEGORY_URL = `${this.BASE_URL}/category`;
+  private PUT_CATEGORY_URL = `${this.BASE_URL}/category`;
+  private DELETE_CATEGORY_URL = `${this.BASE_URL}/category/`;
   // User
-  private GET_ALL_USERS_URL = `${this.BASE_URL}//users`;
-  private GET_USER_BY_ID = `${this.BASE_URL}//user//`;
-  private POST_USER_URL = `${this.BASE_URL}//user`;
-  private PUT_USER_URL = `${this.BASE_URL}//user`;
-  private DELETE_USER_URL = `${this.BASE_URL}//user//`;
+  private GET_ALL_USERS_URL = `${this.BASE_URL}/users`;
+  private GET_USER_BY_ID = `${this.BASE_URL}/user/`;
+  private POST_USER_URL = `${this.BASE_URL}/user`;
+  private PUT_USER_URL = `${this.BASE_URL}/user`;
+  private DELETE_USER_URL = `${this.BASE_URL}/user/`;
 
   constructor(private http: HttpClient) {
   }
