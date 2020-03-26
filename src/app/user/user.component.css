@@ -1,28 +1,22 @@
-th{
-  text-align: center;
+.user{
+  padding-bottom: 10px;
 }
-td{
-  text-align: center;
-}
-#userform{
+
+.userform{
   float: left;
 }
-.table-cont{
-  float: right;
-  margin-top: 30px;
-  margin-right: 50px;
+.table{
+  margin-left: auto;
+  margin-top: 10px;
   width: 50%;
 }
-#userinput1{
-  margin-top: 30px;
 
-}
-input{
+.userinput{
   margin-top: 10px;
   margin-left: 50px;
   width: 125%;
 }
-button{
+.b-save{
   margin-left: 50px;
   margin-top: 10px;
 }
