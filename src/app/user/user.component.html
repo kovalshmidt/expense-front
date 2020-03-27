@@ -1,43 +1,75 @@
-<div class="user">
-  <div class="userform">
-    <div>
-      <div class="form-group">
-        <div class="userinput">
-          <input [(ngModel)]="user.name" name="name" type="text" class="form-control" placeholder="Enter name">
-        </div>
-        <div class="userinput">
-          <input [(ngModel)]="user.email" name="email" type="text" class="form-control" placeholder="Enter email">
-        </div>
-        <div class="b-save">
-          <button type="submit" class="btn btn-primary" (click)="saveUser(user)">Save</button>
-        </div>
+<div id="userform">
+  <div>
+    <form class="form-group"  #f="ngForm" (ngSubmit)="f.form.valid && saveUser(this.user)">
+        <input [(ngModel)]="user.name"
+               name="name" type="text"
+               class="form-control"
+               placeholder="Enter name"
+               #name="ngModel"
+               [ngClass]="{'is-invalid': f.submitted && name.invalid}"
+               required
+               minlength="3"
+               id="input1">
+      <div>
+        <input [(ngModel)]="user.email"
+               name="email" type="text"
+               class="form-control"
+               placeholder="Enter email"
+               #email="ngModel"
+               [ngClass]="{'is-invalid': f.submitted && email.invalid}"
+               required
+               minlength="6">
       </div>
-    </div>
-  </div>
 
+      <div class="b-save">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
 
-  <div >
-    <table class="table">
-      <thead>
-      <th scope="col" class="name-col">Name</th>
-      <th scope="col" class="email-col">Email</th>
-      <th></th>
-      </thead>
-      <tbody *ngFor="let user of users">
-      <tr>
+      <div *ngIf="f.submitted && name.invalid" class="invalid-input" id="mess1">
+        <div *ngIf="name.errors?.minlength"><p class="redtext">The name should be longer</p></div>
+      </div>
 
-        <!--    For the future issue)))-->
-        <!--    if you read this you might have to do editable table-->
-        <!--    Good luck-->
-        <!--    <td><input [(ngModel)]="user.name" (change)="updateUser(user)" class="form-control"/></td>-->
-        <!--    <td><input [(ngModel)]="user.email" (change)="updateUser(user)" class="form-control"/></td>-->
-        <td>{{user.name}}</td>
-        <td>{{user.email}}</td>
-        <td>
-          <button type="button" class="btn btn-outline-danger" (click)="userDelete(this.user)">Delete</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+      <div *ngIf="f.submitted && email.invalid" class="invalid-input" id="mess2">
+        <div *ngIf="email.errors?.minlength"><p class="redtext">The email should be longer</p></div>
+      </div>
+
+      <div *ngFor="let message of messages" [@fadeInOut]>
+        <div *ngIf="message.error; else success">
+          <p class="mess-r">
+            {{message.text}}
+          </p>
+        </div>
+
+        <ng-template #success>
+          <p class="mess-g">
+            {{message.text}}
+          </p>
+        </ng-template>
+      </div>
+    </form>
   </div>
 </div>
+
+
+  <table class="table">
+    <thead>
+    <th scope="col" class="name-col">Name</th>
+    <th scope="col" class="email-col">Email</th>
+    <th scope="col" class="email-col">Action</th>
+    </thead>
+    <tbody *ngFor="let user of users">
+    <tr>
+
+      <!--    For the future issue)))-->
+      <!--    if you read this you might have to do editable table-->
+      <!--    Good luck-->
+      <!--    <td><input [(ngModel)]="user.name" (change)="updateUser(user)" class="form-control"/></td>-->
+      <!--    <td><input [(ngModel)]="user.email" (change)="updateUser(user)" class="form-control"/></td>-->
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <button type="button" class="btn btn-outline-danger" (click)="userDelete(this.user)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
