@@ -7,27 +7,26 @@
 }
 .table{
   margin-left: auto;
-  margin-top: 10px;
-  width: 50%;
+  margin-top: 20px;
+  margin-right: 20px;
+  width: 40%;
+}
+form{
+  width: 35%;
+  margin-left: 50px;
+  margin-top: 20px;
+  float: left;
 }
 
-.userinput{
-  margin-top: 10px;
-  margin-left: 50px;
-  width: 125%;
-}
 .b-save{
-  margin-left: 50px;
   margin-top: 10px;
 }
 #mess1{
-  margin-left: 50px;
   margin-bottom: 8px;
   margin-top: 13px;
   color: red;
 }
 #mess2{
-  margin-left: 50px;
   color: red;
 }
 .mess-r{
@@ -35,8 +34,10 @@
 }
 .mess-g{
   color: green;
-  margin-left: 50px;
   margin-top: 13px;
+}
+#input1{
+margin-bottom: 10px;
 }
 
 /*alternative way to create animation*/
