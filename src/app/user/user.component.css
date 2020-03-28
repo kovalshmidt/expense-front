@@ -1,7 +1,60 @@
+.user{
+  padding-bottom: 10px;
+}
 
-th{
-  text-align: center;
+.userform{
+  float: left;
 }
-td{
-  text-align: center;
+.table{
+  margin-left: auto;
+  margin-top: 20px;
+  margin-right: 20px;
+  width: 40%;
 }
+form{
+  width: 35%;
+  margin-left: 50px;
+  margin-top: 20px;
+  float: left;
+}
+
+.b-save{
+  margin-top: 10px;
+}
+#mess1{
+  margin-bottom: 8px;
+  margin-top: 13px;
+  color: red;
+}
+#mess2{
+  color: red;
+}
+.mess-r{
+  color: red;
+}
+.mess-g{
+  color: green;
+  margin-top: 13px;
+}
+#input1{
+margin-bottom: 10px;
+}
+
+/*alternative way to create animation*/
+/*#pos1 {*/
+/*  margin-left: 50px;*/
+/*  margin-top: 13px;*/
+/*  margin-bottom: 8px;*/
+/*  opacity: 0;*/
+/*  -webkit-animation: fadein 4s; !* Safari, Chrome and Opera > 12.1 *!*/
+/*  -moz-animation: fadein 4s; !* Firefox < 16 *!*/
+/*  -ms-animation: fadein 4s; !* Internet Explorer *!*/
+/*  -o-animation: fadein 4s; !* Opera < 12.1 *!*/
+/*  animation: fadein 4s;*/
+/*}*/
+
+/*@keyframes fadein {*/
+/*  0% { opacity: 0; }*/
+/*  33%   { opacity: 1; }*/
+/*  100% { opacity: 0; }*/
+/*}*/

@@ -1,6 +1,7 @@
 
 .Row  {
   transform: translateY(30px);
+  padding-bottom: 20px ;
 }
 
 .saveCategory {
@@ -41,5 +42,9 @@
   float: left;
   width: 40%;
   margin-right: 2%;
+}
+.invalid-input{
+  margin-top: 5%;
+  color: red;
 }
 
