@@ -7,19 +7,32 @@
     <b>
       <p class="expense_title">Add expense</p>
     </b>
-    <form (ngSubmit)="saveExpense(this.expense)" class="border border-light p-5 expense_form">
-      <input type="text" [(ngModel)]="expense.description" name="description" id="titleInp"
-             class="form-control mb-4 expense_inp" placeholder="Description">
-      <input type="date" [(ngModel)]="expense.expenseDate" name="expenseDate" id="dateInp"
-             class="form-control mb-4 expense_inp" placeholder="Date">
-      <select [(ngModel)]="expense.categoryId" name="categoryId" class="browser-default custom-select mb-4 expense_inp"
-              placeholder="Category" id="select">
-        <option [ngValue]="category.id" *ngFor="let category of categories">{{category.name}}</option>
-      </select>
-      <input type="text" [(ngModel)]="expense.location" name="location" id="locationInp"
-             class="form-control mb-4 expense_inp" placeholder="Location">
-      <button class="btn btn-info btn-block my-4" type="submit">Save</button>
-    </form>
+      <form #f="ngForm" (ngSubmit)="f.form.valid && saveExpense(this.expense, this.f)" class="border border-light p-5 expense_form">
+        <input type="text" required #description="ngModel" [(ngModel)]="expense.description" [ngClass]="{'is-invalid': f.submitted && description.invalid}" name="description" id="titleInp" class="form-control mb-4 expense_inp" placeholder="Description">
+        <div *ngIf="f.submitted && description.invalid" class="invalid-input">
+          <div *ngIf="description.errors?.required">This field cannot be empty</div>
+        </div>
+        <input type="date" #date="ngModel"
+               [ngClass]="{'is-invalid': f.submitted && date.invalid}"
+               required [(ngModel)]="expense.expenseDate" name="expenseDate" id="dateInp" class="form-control mb-4 expense_inp" placeholder="Date">
+        <div *ngIf="f.submitted && date.invalid" class="invalid-input">
+          <div *ngIf="date.errors?.required">This field cannot be empty</div>
+        </div>
+        <select required #category="ngModel"
+                [ngClass]="{'is-invalid': f.submitted && category.invalid}" [(ngModel)]="expense.categoryId" name="categoryId" class="browser-default custom-select mb-4 expense_inp" placeholder="Category" id="select">
+          <option [ngValue]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+        </select>
+        <div *ngIf="f.submitted && category.invalid" class="invalid-input">
+          <div *ngIf="category.errors?.required">This field cannot be empty</div>
+        </div>
+        <input required #location="ngModel"
+               [ngClass]="{'is-invalid': f.submitted && location.invalid}"
+               type="text" [(ngModel)]="expense.location" name="location" id="locationInp" class="form-control mb-4 expense_inp" placeholder="Location">
+        <div *ngIf="f.submitted && location.invalid" class="invalid-input">
+          <div *ngIf="location.errors?.required">This field cannot be empty</div>
+        </div>
+        <button class="btn btn-info btn-block my-4" type="submit">Save</button>
+      </form>
   </div>
 </div>
 

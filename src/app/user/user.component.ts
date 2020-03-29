@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../model/user';
 import {ApiService} from '../shared/api.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-user',
@@ -45,7 +46,7 @@ export class UserComponent implements OnInit {
   }
 
   userDelete(user: User) {
-    if (confirm('Are you sure you want delete this expense?')) {
+    if (confirm('Are you sure you want delete this user?')) {
       this.apiService.deleteUser(user.id).subscribe(
         res => {
           const indexOfExpense = this.users.indexOf(user);
@@ -53,13 +54,13 @@ export class UserComponent implements OnInit {
         },
         err => {
           console.log(err.toString());
-          alert('An error has occurred while deleting the expense');
+          alert('An error has occurred while deleting the user');
         }
       );
     }
   }
 
-  saveUser(user: User) {
+  saveUser(user: User, f: NgForm) {
     this.apiService.saveUser(user).subscribe(
       res => {
         this.users.push(res);
@@ -81,6 +82,9 @@ export class UserComponent implements OnInit {
         }, 2000);
       }
     );
+    if (f.form.valid) {
+      f.resetForm();
+    }
   }
 
   // For the future issue)))
