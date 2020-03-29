@@ -9,6 +9,11 @@
 .dropdown-menu{
   width: 225%;
 }
+.invalid-input{
+  color:red;
+  position: relative;
+  margin-top: -25px;
+}
 .expense_title{
   position: absolute;
   transform: translate(-50%);
@@ -24,6 +29,7 @@
 
 .expense_inp{
   width: 100%;
+  margin: 0;
 }
 /*.test{*/
 /*  height:  1000px;*/
@@ -32,3 +38,5 @@
 .btn-outline-danger{
   margin-top: 13%;
 }
+
+

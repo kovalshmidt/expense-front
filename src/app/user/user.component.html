@@ -1,6 +1,6 @@
 <div id="userform">
   <div>
-    <form class="form-group"  #f="ngForm" (ngSubmit)="f.form.valid && saveUser(this.user)">
+    <form class="form-group"  #f="ngForm" (ngSubmit)="f.form.valid && saveUser(this.user , this.f)">
         <input [(ngModel)]="user.name"
                name="name" type="text"
                class="form-control"

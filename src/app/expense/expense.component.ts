@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Expense} from '../model/expense';
 import {ApiService} from '../shared/api.service';
 import {Category} from '../model/category';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-expense',
@@ -19,6 +20,7 @@ export class ExpenseComponent implements OnInit {
     userId: null,
     location: null
   };
+
 
   constructor(private apiService: ApiService) {
   }
@@ -65,9 +67,10 @@ export class ExpenseComponent implements OnInit {
     );
   }
 
-  updateExpense(updateExpense: Expense) {
-    this.apiService.updateExpense(updateExpense).subscribe(
+  updateExpense(updatedExpense: Expense) {
+    this.apiService.updateExpense(updatedExpense).subscribe(
       res => {
+
       },
       err => {
         console.log(err.toString());
@@ -91,7 +94,7 @@ export class ExpenseComponent implements OnInit {
     }
   }
 
-  saveExpense(expense: Expense) {
+  saveExpense(expense: Expense, f:NgForm) {
     this.apiService.saveExpense(expense).subscribe(
       res => {
         this.expenses.push(res);
@@ -101,6 +104,9 @@ export class ExpenseComponent implements OnInit {
         alert('An error has occurred while saving the expense');
       }
     );
+    if (f.form.valid) {
+      f.resetForm();
+    }
   }
 
 }
