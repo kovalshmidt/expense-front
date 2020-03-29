@@ -1,20 +1,25 @@
 <div class="btn-group">
-  <button type="button" class="btn btn-success dropdown-toggle dropdown_expense" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button type="button" class="btn btn-success dropdown-toggle dropdown_expense" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
     Add expense
   </button>
   <div class="dropdown-menu dropdown">
     <b>
       <p class="expense_title">Add expense</p>
     </b>
-      <form (ngSubmit)="saveExpense(this.expense)" class="border border-light p-5 expense_form">
-        <input type="text" [(ngModel)]="expense.description" name="description" id="titleInp" class="form-control mb-4 expense_inp" placeholder="Description">
-        <input type="date" [(ngModel)]="expense.expenseDate" name="expenseDate" id="dateInp" class="form-control mb-4 expense_inp" placeholder="Date">
-        <select [(ngModel)]="expense.categoryId" name="categoryId" class="browser-default custom-select mb-4 expense_inp" placeholder="Category" id="select">
-          <option [ngValue]="category.id" *ngFor="let category of categories">{{category.name}}</option>
-        </select>
-        <input type="text" [(ngModel)]="expense.location" name="location" id="locationInp" class="form-control mb-4 expense_inp" placeholder="Location">
-        <button class="btn btn-info btn-block my-4" type="submit">Save</button>
-      </form>
+    <form (ngSubmit)="saveExpense(this.expense)" class="border border-light p-5 expense_form">
+      <input type="text" [(ngModel)]="expense.description" name="description" id="titleInp"
+             class="form-control mb-4 expense_inp" placeholder="Description">
+      <input type="date" [(ngModel)]="expense.expenseDate" name="expenseDate" id="dateInp"
+             class="form-control mb-4 expense_inp" placeholder="Date">
+      <select [(ngModel)]="expense.categoryId" name="categoryId" class="browser-default custom-select mb-4 expense_inp"
+              placeholder="Category" id="select">
+        <option [ngValue]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+      </select>
+      <input type="text" [(ngModel)]="expense.location" name="location" id="locationInp"
+             class="form-control mb-4 expense_inp" placeholder="Location">
+      <button class="btn btn-info btn-block my-4" type="submit">Save</button>
+    </form>
   </div>
 </div>
 
@@ -31,10 +36,16 @@
     </thead>
     <tbody>
     <tr *ngFor="let expense of expenses" class="expense">
-      <td><input [(ngModel)]="expense.description"   (change)="updateExpense(expense)" class="form-control" /></td>
-      <td><input [(ngModel)]="expense.categoryId"   (change)="updateExpense(expense)" class="form-control" /></td>
-      <td><input [(ngModel)]="expense.location"   (change)="updateExpense(expense)" class="form-control" /></td>
-      <td><input [(ngModel)]="expense.expenseDate"   (change)="updateExpense(expense)" class="form-control"/></td>
+      <td><input [(ngModel)]="expense.description" (change)="updateExpense(expense)" class="form-control"/></td>
+      <td>
+        <select [(ngModel)]="expense.categoryId" name="categoryId"
+                class=" custom-select  expense_inp"
+                placeholder="Category" id="select1" (change)="updateExpense(expense)">
+          <option [ngValue]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+        </select>
+      </td>
+      <td><input [(ngModel)]="expense.location" (change)="updateExpense(expense)" class="form-control"/></td>
+      <td><input [(ngModel)]="expense.expenseDate" (change)="updateExpense(expense)" class="form-control"/></td>
       <button type="button" class="btn btn-outline-danger" (click)="deleteExpense(expense)">Delete</button>
     </tr>
     <tr>
