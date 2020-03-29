@@ -67,9 +67,10 @@ export class ExpenseComponent implements OnInit {
     );
   }
 
-  updateExpense(updateExpense: Expense) {
-    this.apiService.updateExpense(updateExpense).subscribe(
+  updateExpense(updatedExpense: Expense) {
+    this.apiService.updateExpense(updatedExpense).subscribe(
       res => {
+
       },
       err => {
         console.log(err.toString());

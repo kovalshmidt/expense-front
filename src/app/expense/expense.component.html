@@ -1,5 +1,6 @@
 <div class="btn-group">
-  <button type="button" class="btn btn-success dropdown-toggle dropdown_expense" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button type="button" class="btn btn-success dropdown-toggle dropdown_expense" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
     Add expense
   </button>
   <div class="dropdown-menu dropdown">
@@ -48,10 +49,16 @@
     </thead>
     <tbody>
     <tr *ngFor="let expense of expenses" class="expense">
-      <td><input [(ngModel)]="expense.description"   (change)="updateExpense(expense)" class="form-control" /></td>
-      <td><input [(ngModel)]="expense.categoryId"   (change)="updateExpense(expense)" class="form-control" /></td>
-      <td><input [(ngModel)]="expense.location"   (change)="updateExpense(expense)" class="form-control" /></td>
-      <td><input [(ngModel)]="expense.expenseDate"   (change)="updateExpense(expense)" class="form-control"/></td>
+      <td><input [(ngModel)]="expense.description" (change)="updateExpense(expense)" class="form-control"/></td>
+      <td>
+        <select [(ngModel)]="expense.categoryId" name="categoryId"
+                class=" custom-select  expense_inp"
+                placeholder="Category" id="select1" (change)="updateExpense(expense)">
+          <option [ngValue]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+        </select>
+      </td>
+      <td><input [(ngModel)]="expense.location" (change)="updateExpense(expense)" class="form-control"/></td>
+      <td><input [(ngModel)]="expense.expenseDate" (change)="updateExpense(expense)" class="form-control"/></td>
       <button type="button" class="btn btn-outline-danger" (click)="deleteExpense(expense)">Delete</button>
     </tr>
     <tr>
