@@ -7,11 +7,12 @@ import { ExpenseComponent } from './expense/expense.component';
 import { CategoryComponent } from './category/category.component';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {HomeComponent} from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {UserComponent} from "./user/user.component";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {UserComponent} from './user/user.component';
+import {InterceptorService} from './shared/httpinterceptor.service';
 
 
 
@@ -56,7 +57,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
