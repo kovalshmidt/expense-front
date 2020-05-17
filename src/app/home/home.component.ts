@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Expense} from '../model/expense';
 import {Category} from '../model/category';
 import {ApiService} from '../shared/api.service';
+import {AuthenticationService} from '../shared/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +13,13 @@ export class HomeComponent implements OnInit {
   expenses: Expense[] = [];
   categories: Category[] = [];
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private auth: AuthenticationService) {
   }
 
   ngOnInit(): void {
-    this.getAllItems();
+    if (this.auth.isUserLoggedIn()) {
+      this.getAllItems();
+    }
   }
 
   getAllItems() {
