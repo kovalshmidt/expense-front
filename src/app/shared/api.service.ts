@@ -12,23 +12,23 @@ export class ApiService {
 
   private BASE_URL = `http://localhost:8080` + `/api`;
   // Expense
-  private GET_ALL_EXPENSES_URL = `${this.BASE_URL}/expenses`;
-  private GET_EXPENSE_BY_ID = `${this.BASE_URL}/expense/`;
-  private POST_EXPENSE_URL = `${this.BASE_URL}/expense`;
-  private PUT_EXPENSE_URL = `${this.BASE_URL}/expense`;
-  private DELETE_EXPENSE_URL = `${this.BASE_URL}/expense/`;
+  private GET_ALL_EXPENSES_URL = `${this.BASE_URL}/expense/all`;
+  private GET_EXPENSE_BY_ID = `${this.BASE_URL}/expense/get/`;
+  private POST_EXPENSE_URL = `${this.BASE_URL}/expense/save`;
+  private PUT_EXPENSE_URL = `${this.BASE_URL}/expense/update`;
+  private DELETE_EXPENSE_URL = `${this.BASE_URL}/expense/delete/`;
   // Category
-  private GET_ALL_CATEGORIES_URL = `${this.BASE_URL}/categories`;
-  private GET_CATEGORY_BY_ID = `${this.BASE_URL}/category/`;
-  private POST_CATEGORY_URL = `${this.BASE_URL}/category`;
-  private PUT_CATEGORY_URL = `${this.BASE_URL}/category`;
-  private DELETE_CATEGORY_URL = `${this.BASE_URL}/category/`;
+  private GET_ALL_CATEGORIES_URL = `${this.BASE_URL}/category/all`;
+  private GET_CATEGORY_BY_ID = `${this.BASE_URL}/category/get/`;
+  private POST_CATEGORY_URL = `${this.BASE_URL}/category/save`;
+  private PUT_CATEGORY_URL = `${this.BASE_URL}/category/update`;
+  private DELETE_CATEGORY_URL = `${this.BASE_URL}/category/delete/`;
   // User
-  private GET_ALL_USERS_URL = `${this.BASE_URL}/users`;
-  private GET_USER_BY_ID = `${this.BASE_URL}/user/`;
-  private POST_USER_URL = `${this.BASE_URL}/user`;
-  private PUT_USER_URL = `${this.BASE_URL}/user`;
-  private DELETE_USER_URL = `${this.BASE_URL}/user/`;
+  private GET_ALL_USERS_URL = `${this.BASE_URL}/user/all`;
+  private GET_USER_BY_ID = `${this.BASE_URL}/user/get/`;
+  private POST_USER_URL = `${this.BASE_URL}/user/save`;
+  private PUT_USER_URL = `${this.BASE_URL}/user/update`;
+  private DELETE_USER_URL = `${this.BASE_URL}/user/delete/`;
 
   constructor(private http: HttpClient) {
   }
