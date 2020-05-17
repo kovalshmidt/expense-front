@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Expense} from '../model/expense';
 import {ApiService} from '../shared/api.service';
 import {Category} from '../model/category';
-import {NgForm} from "@angular/forms";
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-expense',
@@ -94,7 +94,7 @@ export class ExpenseComponent implements OnInit {
     }
   }
 
-  saveExpense(expense: Expense, f:NgForm) {
+  saveExpense(expense: Expense, f: NgForm) {
     this.apiService.saveExpense(expense).subscribe(
       res => {
         this.expenses.push(res);
