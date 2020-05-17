@@ -17,69 +17,84 @@
       <a class="nav-link" routerLink="/user">Users</a>
     </li>
     <li class="nav-item" id="sign_up_menu">
-      <ul class="nav navbar-nav navbar-right ml-auto">
-        <li class="nav-item">
-          <button data-toggle="dropdown" class="nav-link dropdown-toggle login-btn" href="#">Login</button>
-          <ul class="dropdown-menu form-wrapper">
-            <li>
-              <form name="form" #f="ngForm" (ngSubmit)="login()" novalidate class="saveCategory">
-                <p class="hint-text">Sign in with your social media account</p>
-                <div class="form-group social-btn clearfix">
-                  <a href="#" class="btn btn-primary pull-left">
-                    <i class="fa fa-facebook"></i>
-                    Facebook
-                  </a>
-                  <a href="#" class="btn btn-info pull-right">
-                    <i class="fa fa-twitter"></i>
-                    Twitter
-                  </a>
-                </div>
-                <div class="or-seperator">
-                  <b>or</b>
-                </div>
-                <div class="form-group">
-                  <input [(ngModel)]="username" name="email" type="text" class="form-control" placeholder="Email" required="required">
-                </div>
-                <div class="form-group">
-                  <input [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="Password" required="required">
-                </div>
-                <input type="submit" class="btn btn-primary btn-block" value="Login">
-                <div class="form-footer">
-                  <a href="#">Forgot Your password?</a>
-                </div>
-              </form>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <button href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up
-          </button>
-          <ul class="dropdown-menu form-wrapper">
-            <li>
-              <form action="/examples/actions/confirmation.php" method="post">
-                <p class="hint-text">Fill in this form to create your account!</p>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password" required="required">
-                </div>
-                <div class="form-group">
-                  <label class="checkbox-inline">
-                    <input type="checkbox" required="required">
-                    I accept the
-                    <a href="#">Terms &amp; Conditions</a>
-                  </label>
-                </div>
-                <input type="submit" class="btn btn-primary btn-block" value="Sign up">
-              </form>
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <div  *ngIf = "logStatus == false; else logoutbutton" class="signupcont">
+        <ul class="nav navbar-nav navbar-right ml-auto">
+          <li class="nav-item">
+            <button data-toggle="dropdown" class="nav-link dropdown-toggle login-btn" href="#">Login</button>
+            <ul class="dropdown-menu form-wrapper">
+              <li>
+                <form name="form" #f="ngForm" (ngSubmit)="login()" novalidate class="saveCategory">
+                  <p class="hint-text">Sign in with your social media account</p>
+                  <div class="form-group social-btn clearfix">
+                    <a href="#" class="btn btn-primary pull-left">
+                      <i class="fa fa-facebook"></i>
+                      Facebook
+                    </a>
+                    <a href="#" class="btn btn-info pull-right">
+                      <i class="fa fa-twitter"></i>
+                      Twitter
+                    </a>
+                  </div>
+                  <div class="or-seperator">
+                    <b>or</b>
+                  </div>
+                  <div class="form-group">
+                    <input [(ngModel)]="username" name="email" type="text" class="form-control" placeholder="Email"
+                                                  required="required">
+                  </div>
+                  <div class="form-group">
+                    <input [(ngModel)]="password" name="password" type="password" class="form-control"
+                                                  placeholder="Password" required="required">
+                  </div>
+                  <input type="submit" class="btn btn-primary btn-block" value="Login">
+                  <div class="form-footer">
+                    <a href="#">Forgot Your password?</a>
+                  </div>
+                </form>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <button href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">
+              Sign
+              up
+            </button>
+            <ul class="dropdown-menu form-wrapper">
+              <li>
+                <form action="/examples/actions/confirmation.php" method="post">
+                  <p class="hint-text">Fill in this form to create your account!</p>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username" required="required">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" required="required">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Confirm Password" required="required">
+                  </div>
+                  <div class="form-group">
+                    <label class="checkbox-inline">
+                      <input type="checkbox" required="required">
+                      I accept the
+                      <a href="#">Terms &amp; Conditions</a>
+                    </label>
+                  </div>
+                  <input type="submit" class="btn btn-primary btn-block" value="Sign up">
+                </form>
+
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+      <ng-template #logoutbutton>
+        <ul class="nav navbar-nav navbar-right ml-auto">
+          <li class="nav-item">
+            <button (click)="logout()" class="nav-link login-btn" href="#">Logout</button>
+          </li>
+        </ul>
+      </ng-template>
     </li>
   </ul>
 </nav>

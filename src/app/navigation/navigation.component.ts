@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../shared/authentication.service';
 
 @Component({
@@ -9,16 +9,25 @@ import {AuthenticationService} from '../shared/authentication.service';
 export class NavigationComponent implements OnInit {
   username: string;
   password: string;
+  logStatus: boolean;
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(private auth: AuthenticationService) {
+  }
 
   ngOnInit(): void {
+    // Check that user is logged in
+    this.logStatus = this.auth.isUserLoggedIn();
+  }
+
+  reloadPage() {
+    window.location.reload();
   }
 
   login() {
     this.auth.authenticate(this.username, this.password).subscribe(
       res => {
         this.auth.setToken(res.jwt);
+        this.reloadPage();
       },
       err => {
         console.log(err.toString());
@@ -29,6 +38,7 @@ export class NavigationComponent implements OnInit {
 
   logout() {
     this.auth.logOut();
+    this.reloadPage();
   }
 
 }
