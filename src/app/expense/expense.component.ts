@@ -55,10 +55,7 @@ export class ExpenseComponent implements OnInit {
     );
   }
 
-  getExpenseById(expense
-                   :
-                   Expense
-  ) {
+  getExpenseById(expense: Expense) {
     this.apiService.getExpenseById(expense.id).subscribe(
       res => {
         this.expense = res;
