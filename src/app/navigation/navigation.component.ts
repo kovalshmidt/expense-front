@@ -30,7 +30,7 @@ export class NavigationComponent implements OnInit {
         this.reloadPage();
       },
       err => {
-        console.log(err.toString());
+        console.log(err.error);
         alert('An error has occurred while authenticating the user');
       }
     );
