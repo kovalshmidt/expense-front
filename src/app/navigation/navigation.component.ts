@@ -10,6 +10,7 @@ export class NavigationComponent implements OnInit {
   username: string;
   password: string;
   logStatus: boolean;
+  roles: string[];
 
   constructor(private auth: AuthenticationService) {
   }
@@ -27,6 +28,7 @@ export class NavigationComponent implements OnInit {
     this.auth.authenticate(this.username, this.password).subscribe(
       res => {
         this.auth.setToken(res.jwt);
+        this.roles = res.roles;
         this.reloadPage();
       },
       err => {
