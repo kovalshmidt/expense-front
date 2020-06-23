@@ -1,19 +1,19 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="nav">
   <!-- Brand/logo -->
-  <a class="navbar-brand" routerLink="/home">Expenses Tracker Application</a>
+  <a class="navbar-brand" routerLink="/home">Wallet</a>
 
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link" routerLink="/home" id="navhome">Home</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/category">Categories</a>
+    <li class="nav-item"  *ngIf = "logStatus == true; else empty" >
+      <a class="nav-link" routerLink="/category"  >Categories</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item"  *ngIf = "logStatus == true; else empty">
       <a class="nav-link" routerLink="/expense">Expenses</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf = "logStatus == true; else empty">
       <a class="nav-link" routerLink="/user">Users</a>
     </li>
     <li class="nav-item" id="sign_up_menu">
@@ -24,20 +24,21 @@
             <ul class="dropdown-menu form-wrapper">
               <li>
                 <form name="form" #f="ngForm" (ngSubmit)="login()" novalidate class="saveCategory">
-                  <p class="hint-text">Sign in with your social media account</p>
-                  <div class="form-group social-btn clearfix">
-                    <a href="#" class="btn btn-primary pull-left">
-                      <i class="fa fa-facebook"></i>
-                      Facebook
-                    </a>
-                    <a href="#" class="btn btn-info pull-right">
-                      <i class="fa fa-twitter"></i>
-                      Twitter
-                    </a>
-                  </div>
-                  <div class="or-seperator">
-                    <b>or</b>
-                  </div>
+                  <!--<p class="hint-text">Sign in with your social media account</p>-->
+                  <!--<div class="form-group social-btn clearfix">-->
+                    <!--<a href="#" class="btn btn-primary pull-left">-->
+                      <!--<i class="fa fa-facebook"></i>-->
+                      <!--Facebook-->
+                    <!--</a>-->
+                    <!--<a href="#" class="btn btn-info pull-right">-->
+                      <!--<i class="fa fa-twitter"></i>-->
+                      <!--Twitter-->
+                    <!--</a>-->
+                  <!--</div>-->
+                  <!--<div class="or-seperator">-->
+                    <!--<b>or</b>-->
+                  <!--</div>-->
+                  <p align="center">Log into your account</p>
                   <div class="form-group">
                     <input [(ngModel)]="username" name="email" type="text" class="form-control" placeholder="Email"
                                                   required="required">
@@ -94,6 +95,10 @@
             <button (click)="logout()" class="nav-link login-btn" href="#">Logout</button>
           </li>
         </ul>
+      </ng-template>
+
+      <ng-template #empty>
+        <div></div>
       </ng-template>
     </li>
   </ul>
