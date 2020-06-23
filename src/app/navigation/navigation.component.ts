@@ -16,6 +16,10 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  this.isUserLoggedIn();
+  }
+
+  isUserLoggedIn() {
     // Check that user is logged in
     this.logStatus = this.auth.isUserLoggedIn();
   }
@@ -29,6 +33,7 @@ export class NavigationComponent implements OnInit {
       res => {
         this.auth.setToken(res.jwt);
         this.roles = res.roles;
+        this.isUserLoggedIn();
         this.reloadPage();
       },
       err => {
@@ -40,6 +45,7 @@ export class NavigationComponent implements OnInit {
 
   logout() {
     this.auth.logOut();
+    this.isUserLoggedIn();
     this.reloadPage();
   }
 
